@@ -1,6 +1,6 @@
 {
   "name": "translator",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "next": "14.0.4",
+    "rabbit-node": "^1.0.4",
     "react": "^18",
-    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18"
-  }
+  },
+  "author": "Pho Thin Maung"
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/phothinmg/burmese-font@main/index.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
 *,  *:before,  *:after  {
@@ -7,14 +7,14 @@
     box-sizing:  border-box;
 }
 body  {
-    font-family:  'Noto Sans Myanmar', sans-serif;
+    font-family: burmese !important;
     color:  #384047;
-    /* background-image: url('https://img.freepik.com/premium-vector/abstract-purple-wavy-liquid-background_622308-5.jpg'); */
-    background-color: #673ab8;
+    /* background-image: url('https://res.cloudinary.com/practicaldev/image/fetch/s--BuPz-p40--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nphrgz8yfnjylrwfr0yl.png'); */
+    background-color: #2a3461;
     background-position:  0px 0px;
-    background-repeat:  repeat;
+    /* background-repeat:  repeat;
     animation:  animatedBackground 40s linear infinite;
-    opacity: 0.9;
+    opacity: 0.9; */
 }
 @keyframes animatedBackground  {
     from  {
@@ -30,7 +30,7 @@ form  {
     padding:  10px 20px;
     background:  #f4f7f8;
     border-radius:  8px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 
 h1  {
@@ -49,6 +49,7 @@ textarea , .textarea{
     color:  #384047;
     margin-bottom:  10px;
 	resize: none;
+    font-family: burmese !important;
 }
 textarea::placeholder{
 	color: #b7b6b6;
@@ -58,7 +59,7 @@ select  {
     height:  32px;
 	border: none;
     border-bottom: 1px groove #adadad ;
-    font-size:  16px;
+    font-size: medium;
     margin:  0;
     outline:  0;
     width:  45%;
@@ -92,15 +93,21 @@ i{
 	transition: transform 0.2s ease;
 	justify-content: center;
  }
+ i:hover{
+    color: dodgerblue;
+ }
  i:active{
 	transform: scale(0.9);
 }
-/* 3D Button from  */
-
-
-
-
-/* CSS */
+.popup{
+    font-size: x-small;
+    background-color: #673ab8;
+    color: #f4f7f8;
+    padding: 3px;
+    border-radius: 3px;
+    margin-left: 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
 .button-52 {
   padding: 12px 26px;
   border: 0;

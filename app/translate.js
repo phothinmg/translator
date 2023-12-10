@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import countries from "@/lib/countries";
-import { CopyButton } from './icons';
+import { zg2uni} from 'rabbit-node';
+import { CopyToClipboard, VoiceButton} from './icons';
 
 let option = [];
     for (let d in countries){
@@ -20,6 +21,7 @@ export function Translator() {
   const handleT = (event) => {
     setTValue(event.target.value);
   };
+  
   const [text, setTextareaValue] = useState('');
   const handleTextareaChange = (event) => {
     setTextareaValue(event.target.value);
@@ -30,32 +32,28 @@ export function Translator() {
     const apidata = await fetch(url);
     const 
     a = await apidata.json(),
-    // b = JSON.stringify(a),
-    c = a.matches;
-    let d = '';
-    for (let i = 1; i<c.length; i++){
-        d += c[i].translation
-    }
+    c = a.matches[0],
+    d = zg2uni(c.translation);
+   
     return d
   };
-
   const datatext = async () => await getapi(apiurl);
-
-  
-
   const [translatedText, setTranslatedText] = useState('');
-
-    const fetchTranslatedText = async () => {
+  const fetchTranslatedText = async () => {
     const text = await datatext();
     setTranslatedText(text);
     };
-
-    const handleTranslateClick = (event) => {
+  const handleTranslateClick = (event) => {
         event.preventDefault();
-        fetchTranslatedText();
-      };
-
-      const renderOptions = () => {
+        if(!f || !t){
+          alert('Please select lang !!');
+        } else if (!text){
+          alert('Please enter text to translate !!');
+        } else {
+          fetchTranslatedText();
+        }
+  };
+  const renderOptions = () => {
         return option.map((item, index) => (
           <option key={index} value={item.value}>{item.name}</option>
         ));
@@ -72,33 +70,38 @@ export function Translator() {
           id='ft'
         ></textarea>
         <div className="control">
-          <i className="fas fa-volume-up"></i>
-          {/* <CopyButton text = {text.trim()} /> */}
+          <VoiceButton 
+            text = {text}
+            lang={f}
+          />
+          <CopyToClipboard text={text.trim()} />
           <select value={f} onChange={handleF} id='fl'>
             <option value="">Select Lang</option>
             {renderOptions()}
           </select>
         </div>
       </fieldset>
-      <div className="sort">
+      {/* <div className="sort">
         <p className="exchange">
-          <i className="fas fa-sort"></i>
+        <i className="fas fa-sort" onClick={handleExchange}></i>
         </p>
-      </div>
+      </div> */}
       <fieldset>
         <div
-        //   placeholder="Translate..."
-        //   spellCheck={false}
           readOnly
           className='textarea'
+          id='tt'
         >
           {translatedText}
         </div>
         <div className="control">
-          <i className="fas fa-volume-up"></i>
-          <i className="fas fa-copy"></i>
+        <VoiceButton 
+            text = {translatedText}
+            lang={t}
+          />
+          <CopyToClipboard text={translatedText} />
           <select value={t} onChange={handleT} id='tl'>
-            <option value="">Select Lang</option>
+           <option value="">Select Lang</option>
             {renderOptions()}
           </select>
         </div>
